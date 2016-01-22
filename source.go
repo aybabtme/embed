@@ -120,8 +120,11 @@ loop:
 			break loop
 		}
 	}
+	if node == nil {
+		return "", nil, fmt.Errorf("variable not found in any Go file, does it exist?")
+	}
 
-	var buf bytes.Buffer
-	err = format.Node(&buf, fset, node)
+	buf := new(bytes.Buffer)
+	err = format.Node(buf, fset, node)
 	return filename, buf.Bytes(), err
 }
