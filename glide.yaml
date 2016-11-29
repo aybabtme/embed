@@ -1,0 +1,3 @@
+package: github.com/aybabtme/embed
+import:
+- package: github.com/urfave/cli
