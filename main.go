@@ -1,13 +1,14 @@
 package main
 
 import (
-	"github.com/codegangsta/cli"
 	"io"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/urfave/cli"
 )
 
 func main() {
@@ -92,7 +93,7 @@ func embedUniqueFile() cli.Command {
 		Usage:       "embeds a unique file",
 		Description: "embeds the content of a file into a variable",
 		Flags:       []cli.Flag{varNameFlag, dirFlag, sourceFlag, keepFlag},
-		Action: func(c *cli.Context) {
+		Action: func(c *cli.Context) error {
 
 			// this code is the second worst code
 			varName := mustString(c, varNameFlag)
@@ -135,6 +136,8 @@ func embedUniqueFile() cli.Command {
 				log.Fatalf("couldn't write to file %q, %v", dstFilename, err)
 			}
 			log.Printf("in file %q; value of %q set", dstFilename, varName)
+
+			return nil
 		},
 	}
 }
