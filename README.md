@@ -1,4 +1,4 @@
-# package embed
+# embed
 
 Hacked together prototype to rewrite `string` or `[]byte` variables and
 constants in a package, using the content of a file.
@@ -27,6 +27,20 @@ Flags:
 * `-var`: set the variable `createDbSQL`
 * `--source` or `stdin`: source of content for `createDbSQL`
 * `--keep`: creates a new file instead of setting the variable directly in the file
+
+## Installation
+
+### linux
+
+```bash
+wget -qO- https://github.com/aybabtme/embed/releases/download/0.1/embed_linux.tar.gz | tar xvz
+```
+
+### darwin
+
+```bash
+wget -qO- https://github.com/aybabtme/embed/releases/download/0.1/embed_darwin.tar.gz | tar xvz
+```
 
 ## Example
 
